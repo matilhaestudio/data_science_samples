@@ -28,11 +28,10 @@ ActiveRecord::Schema.define(version: 20180103154408) do
     t.integer  "referal_id"
     t.string   "referal"
     t.integer  "weekday_id"
-    t.string   "week"
     t.integer  "hour_id"
-    t.string   "hour"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "is_converted"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

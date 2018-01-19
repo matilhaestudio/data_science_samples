@@ -106,6 +106,7 @@ end
 # t.string :referal
 # t.integer :weekday_id
 # t.integer :hour_id
+# t.integrer :is_converted
 
 1000.times do 
 	products_sample = products.sample
