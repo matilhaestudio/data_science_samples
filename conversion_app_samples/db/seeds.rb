@@ -8,92 +8,86 @@
 
 products = [{
 				product_id: 1,
-				category_id: 1
+				product: "Analgésico ABC",
+				category_id: 1,
+				category: "Analgésicos"
 			},
 			{
 				product_id: 2,
-				category_id: 1
+				product: "Analgésico XYZ",
+				category_id: 1,
+				category: "Analgésicos"
 			},
 			{
 				product_id: 3,
-				category_id: 1
+				product: "Antigripal ABC",
+				category_id: 2,
+				category: "Antigripal"
 			},
 			{
 				product_id: 4,
-				category_id: 2
+				product: "Antigripal XYZ",
+				category_id: 2,
+				category: "Antigripal"
 			},
 			{
 				product_id: 5,
-				category_id: 2
+				product: "Câncer ABC",
+				category_id: 3,
+				category: "Câncer"
 			},
 			{
 				product_id: 6,
-				category_id: 2
-			},
-			{
-				product_id: 7,
-				category_id: 3
-			},
-			{
-				product_id: 8,
-				category_id: 3
-			},
-			{
-				product_id: 9,
-				category_id: 3
-			},
-			{
-				product_id: 10,
-				category_id: 4
-			},
-			{
-				product_id: 11,
-				category_id: 4
-			},
-			{
-				product_id: 12,
-				category_id: 4
-			},
-			{
-				product_id: 13,
-				category_id: 1
-			},
-			{
-				product_id: 14,
-				category_id: 2
-			},
-			{
-				product_id: 15,
-				category_id: 3
-			},
-			{
-				product_id: 16,
-				category_id: 4
-			},
-			{
-				product_id: 17,
-				category_id: 1
-			},
-			{
-				product_id: 18,
-				category_id: 2
-			},
-			{
-				product_id: 19,
-				category_id: 3
-			},
-			{
-				product_id: 20,
-				category_id: 4
-			}
-			]
+				product: "Câncer XYZ",
+				category_id: 3,
+				category: "Câncer"
+			}]
 
-user_samples = []
+states = [{
+			state_id: 1,
+			state: "PR",
+			city_id: 1,
+			city: "Curitiba"
+		},
+		{
+			state_id: 1,
+			state: "PR",
+			city_id: 3,
+			city: "Maringá"
+		},
+		{
+			state_id: 2,
+			state: "SP",
+			city_id: 3,
+			city: "São Paulo"
+		},
+		{
+			state_id: 2,
+			state: "SP",
+			city_id: 3,
+			city: "Osasco"
+		}]
+
+referals = [{
+			referal_id: 1,
+			referal: "Busca",
+		 },
+		 {
+			referal_id: 2,
+			referal: "Minhas Listas",
+		 },
+		 {
+			referal_id: 3,
+			referal: "Categorias",
+		 }]
+
+
+users = []
 200.times do |i|
 	id = i
 	gender = rand(1..2)
 	age = rand(20..60)
-	user_samples.push({id: id, gender: gender, age: age})
+	users.push({id: id, gender: gender, age: age})
 end
 
 # t.integer :user_id
@@ -111,22 +105,31 @@ end
 # t.integer :referal_id
 # t.string :referal
 # t.integer :weekday_id
-# t.string :week
 # t.integer :hour_id
-# t.string :hour
 
-10000.times do 
+1000.times do 
 	products_sample = products.sample
-	user_sample = user_samples.sample
+	user_sample = users.sample
+	state_sample = states.sample
+	referal_sample = referals.sample
 	c = Conversion.new(
 		user_id: user_sample[:id],
 		user_gender: user_sample[:gender],
 		user_age: user_sample[:age],
+		state_id: state_sample[:state_id],
+		state: state_sample[:state],
+		city_id: state_sample[:city_id],
+		city: state_sample[:city],
 		product_id: products_sample[:product_id],
+		product: products_sample[:product],
 		category_id: products_sample[:category_id],
+		category: products_sample[:category],
 		price: rand(1..100),
+		referal_id: referal_sample[:referal_id],
+		referal: referal_sample[:referal],
 		weekday_id: rand(1..7),
-		hour_id: rand(0..24)
+		hour_id: rand(6..24),
+		is_converted: [0,1].sample
  	)
 	c.save
 end
