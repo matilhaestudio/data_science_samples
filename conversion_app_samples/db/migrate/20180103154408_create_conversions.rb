@@ -16,10 +16,9 @@ class CreateConversions < ActiveRecord::Migration[5.0]
       t.integer :referal_id
       t.string :referal
       t.integer :weekday_id
-      t.string :week
       t.integer :hour_id
-      t.string :hour
-
+      t.integer :is_converted
+      
       t.timestamps
     end
   end
