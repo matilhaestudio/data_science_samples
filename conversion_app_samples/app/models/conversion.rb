@@ -41,6 +41,8 @@ class Conversion < ApplicationRecord
 		  				"referal",
 		  				"weekday_id", 
 		  				"hour_id",
+		  				"weather_id",
+		  				"sazonal_id",
 		  				"is_converted"
 		  			]
 		  lines.each do |l|
@@ -62,6 +64,8 @@ class Conversion < ApplicationRecord
 		    			l.referal, 
 		    			l.weekday_id, 
 		    			l.hour_id,
+		    			l.weather_id,
+		    			l.sazonal_id,
 		    			l.is_converted
 		    		]
 		  end

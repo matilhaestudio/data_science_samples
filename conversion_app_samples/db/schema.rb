@@ -24,11 +24,13 @@ ActiveRecord::Schema.define(version: 20180103154408) do
     t.string   "product"
     t.integer  "category_id"
     t.string   "category"
-    t.float    "price"
+    t.integer  "price"
     t.integer  "referal_id"
     t.string   "referal"
     t.integer  "weekday_id"
     t.integer  "hour_id"
+    t.integer  "weather_id"
+    t.integer  "sazonal_id"
     t.integer  "is_converted"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
